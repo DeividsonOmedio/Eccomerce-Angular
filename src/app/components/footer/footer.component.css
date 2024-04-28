@@ -1,0 +1,11 @@
+footer h6{
+    font-size: x-large;
+}
+.store{
+    width: 120px;
+    margin-top: 5px;
+}
+footer section a{
+    color: #fff;
+    text-decoration: none;
+}

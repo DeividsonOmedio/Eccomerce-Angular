@@ -1,0 +1,29 @@
+.redesSociais{
+    color: #fff !important;
+    display: flex;
+    gap: 15%;
+    zoom: 1.2;
+}
+.logo{
+    scale: 2.8;
+    margin-top: 5px;
+}
+
+
+mat-toolbar{
+    display: grid;
+    grid-template-areas: 
+    "left center right"
+    "left center right";
+    grid-template-columns: 2fr 2fr 1fr;
+    padding: 0 5%;
+}
+.left{
+    grid-area: left;
+}
+.cemter{
+    grid-area: center;
+}
+.right{
+    grid-area: right;
+}

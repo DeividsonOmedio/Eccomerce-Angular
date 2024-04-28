@@ -1,0 +1,7 @@
+
+   <div *ngFor="let categoria of categoriasProdutos | keyvalue" class="pt-4">
+    <h2>{{categoria.key}}</h2>
+       <app-produtos-categoria [produtosCategoriaList]="categoria.value"/>
+    </div> 
+   
+   
