@@ -3,14 +3,20 @@ import { ProdutosCategoriaComponent } from '../../../components/produtos-categor
 import { IProduto } from '../../../interfaces/produto.interface';
 import { KeyValuePipe, NgFor } from '@angular/common';
 
+import { MatSidenavModule } from '@angular/material/sidenav';
+import {MatButtonModule} from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { CartComponent } from '../../../components/cart/cart.component';
+
 @Component({
   selector: 'app-index',
   standalone: true,
-  imports: [ProdutosCategoriaComponent, NgFor, KeyValuePipe],
+  imports: [ProdutosCategoriaComponent, NgFor, KeyValuePipe, MatSidenavModule, MatButtonModule, MatIconModule, CartComponent],
   templateUrl: './index.component.html',
   styleUrl: './index.component.css'
 })
 export class IndexComponent {
+
   produtoList: IProduto[] = [
     {
       "id": 1,
@@ -23,7 +29,8 @@ export class IndexComponent {
       "precoPromocional": 19.90,
       "promocao": true,
       "quantidadeEmEstoque": 50,
-      "imagem": "arrozSempreBom.jpg"
+      "imagem": "arrozSempreBom.jpg",
+      "totalAdicionadoAoCart": 0
     },
     {
       "id": 2,
@@ -36,7 +43,8 @@ export class IndexComponent {
       "precoPromocional": 19.90,
       "promocao": true,
       "quantidadeEmEstoque": 50,
-      "imagem": "arrozPratoFino.jpg"
+      "imagem": "arrozPratoFino.jpg",
+      "totalAdicionadoAoCart": 0
     },
     {
       "id": 3,
@@ -49,7 +57,8 @@ export class IndexComponent {
       "precoPromocional": 6.90,
       "promocao": true,
       "quantidadeEmEstoque": 100,
-      "imagem": "feijaoGalante.webp"
+      "imagem": "feijaoGalante.webp",
+      "totalAdicionadoAoCart": 0
     },
     {
       "id": 4,
@@ -62,7 +71,8 @@ export class IndexComponent {
       "precoPromocional": 7.90,
       "promocao": true,
       "quantidadeEmEstoque": 50,
-      "imagem": "bombomGaroto.webp"
+      "imagem": "bombomGaroto.webp",
+      "totalAdicionadoAoCart": 0
     },
   
     {
@@ -76,7 +86,8 @@ export class IndexComponent {
       "precoPromocional": 6.90,
       "promocao": true,
       "quantidadeEmEstoque": 40,
-      "imagem": "cocaCola.jpg"
+      "imagem": "cocaCola.jpg",
+      "totalAdicionadoAoCart": 0
     },
   
     {
@@ -90,7 +101,8 @@ export class IndexComponent {
       "precoPromocional": 2.90,
       "promocao": true,
       "quantidadeEmEstoque": 150,
-      "imagem": "brahma.jpg"
+      "imagem": "brahma.jpg",
+      "totalAdicionadoAoCart": 0
     },
   
     {
@@ -104,7 +116,8 @@ export class IndexComponent {
       "precoPromocional": 3.90,
       "promocao": true,
       "quantidadeEmEstoque": 100,
-      "imagem": "heineken.jpg"
+      "imagem": "heineken.jpg",
+      "totalAdicionadoAoCart": 0
     },
   
     {
@@ -118,13 +131,15 @@ export class IndexComponent {
       "precoPromocional": 13.99,
       "promocao": false,
       "quantidadeEmEstoque": 70,
-      "imagem": "vinhoCancao.webp"
+      "imagem": "vinhoCancao.webp",
+      "totalAdicionadoAoCart": 0
     },
   
   ]
 
-
   categoriasProdutos: any;
+  addedPurchaseList: IProduto[] = [];
+
   constructor() {
     this.categoriasProdutos = this.groupByCategory(this.produtoList);
     console.log(this.categoriasProdutos);

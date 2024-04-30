@@ -1,0 +1,15 @@
+@for(product of addedPurchaseList; track product.id){
+  <mat-list>
+    <div style="product: flex; align-items: center">
+    <mat-list-item>{{product.nome}}</mat-list-item>
+    <button mat-button color="warn" (click)="decrementTotalGameCopies(product)">-</button>
+      {{product.totalAdicionadoAoCart}}
+    <button mat-button color="primary" (click)="incrementTotalGameCopies(product)" >+</button>
+    </div>
+    <mat-divider></mat-divider>
+  </mat-list>
+} @empty {
+  <div style="width: 15rem">
+  <mat-list-item>Empty Cart</mat-list-item>
+  </div>
+}

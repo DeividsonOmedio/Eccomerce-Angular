@@ -16,5 +16,5 @@
 </section>
 
 <div *ngIf="modalVisibility">
-    <app-modal [produto]="produto" (modalVisibility)="ModalVisibility()"/>
+    <app-modal [produto]="produto" (modalVisibility)="ModalVisibility()"  (addPurchaseToCart)="addPurchaseToCart($event)"/>
   </div>

@@ -9,5 +9,6 @@ export interface IProduto{
     precoPromocional: number;
     promocao: boolean;
     quantidadeEmEstoque: number,
+    totalAdicionadoAoCart: number,
     imagem: string
 }
