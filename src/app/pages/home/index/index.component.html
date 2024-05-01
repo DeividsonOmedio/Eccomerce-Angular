@@ -53,26 +53,26 @@
     </mat-card>
  
    
+    @if(addedNewPurchaseList.length > 0){
     <mat-card>
       <mat-card-header>
         <mat-card-title>Novos Produtos</mat-card-title>
       </mat-card-header>
       <mat-card-content class="novos-container mt-2">
         <div class="novos-content">
-          @if(addedNewPurchaseList.length > 0){
             <app-produtos-categoria [produtosCategoriaList]="addedNewPurchaseList"  (addBookToCart)="addPurchaseToCart($event)" />
-          }        
-        </div>
-      </mat-card-content>
-      <mat-card-actions class="justify-content-between actions" *ngIf="actionVisible">
-        <button mat-icon-button (click)="scrollLeftNovos()">
-          <mat-icon>keyboard_arrow_left</mat-icon>
-        </button>
-        <button mat-icon-button (click)="scrollRightNovos()">
-          <mat-icon>keyboard_arrow_right</mat-icon>
-        </button>
-      </mat-card-actions>
-    </mat-card>
+          </div>
+        </mat-card-content>
+        <mat-card-actions class="justify-content-between actions" *ngIf="actionVisible">
+          <button mat-icon-button (click)="scrollLeftNovos()">
+            <mat-icon>keyboard_arrow_left</mat-icon>
+          </button>
+          <button mat-icon-button (click)="scrollRightNovos()">
+            <mat-icon>keyboard_arrow_right</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    }        
 
 
  

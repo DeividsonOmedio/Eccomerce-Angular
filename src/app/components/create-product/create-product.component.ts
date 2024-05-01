@@ -4,8 +4,10 @@ import "./create-product.component.css";
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { IProduto } from '../../interfaces/produto.interface';
@@ -13,7 +15,7 @@ import { IProduto } from '../../interfaces/produto.interface';
 @Component({
   selector: 'app-create-product',
   standalone: true,
-  imports: [MatFormFieldModule, MatInputModule, MatDatepickerModule, MatButtonModule, ReactiveFormsModule, MatCheckboxModule],
+  imports: [MatFormFieldModule, MatInputModule, MatDatepickerModule, MatButtonModule, ReactiveFormsModule, MatCheckboxModule, MatIconModule],
   providers: [ provideNativeDateAdapter() ],
   templateUrl: './create-product.component.html',
   styleUrl: './create-product.component.css'

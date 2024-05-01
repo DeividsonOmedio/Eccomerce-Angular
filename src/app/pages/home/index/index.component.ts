@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ProdutosCategoriaComponent } from '../../../components/produtos-categoria/produtos-categoria.component';
 import { IProduto } from '../../../interfaces/produto.interface';
-import { KeyValuePipe, NgFor } from '@angular/common';
+import { KeyValuePipe, NgFor, NgIf } from '@angular/common';
 
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
@@ -14,7 +14,7 @@ import { HeaderComponent } from '../../../components/header/header.component';
 @Component({
   selector: 'app-index',
   standalone: true,
-  imports: [ProdutosCategoriaComponent, NgFor, KeyValuePipe, MatSidenavModule, MatButtonModule, MatIconModule, CartComponent, MatCardModule, HeaderComponent],
+  imports: [ProdutosCategoriaComponent, NgFor, KeyValuePipe, MatSidenavModule, MatButtonModule, MatIconModule, CartComponent, MatCardModule, HeaderComponent, NgIf],
   templateUrl: './index.component.html',
   styleUrl: './index.component.css'
 })
