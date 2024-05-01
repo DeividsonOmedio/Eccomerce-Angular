@@ -1,6 +1,6 @@
 # Ecommerce Mercado
 
-<a href="https://eccomerce-angular.vercel.app/">Acessa Aqui</a>
+<a href="https://eccomerce-angular.vercel.app/" target="_blank">Acesse Aqui</a>
 
 ![Captura de tela_1-5-2024_18931_localhost](https://github.com/DeividsonOmedio/Eccomerce-Angular/assets/114306758/cb4974ae-3253-410a-9ed9-69673490ab23)
 ![Captura de tela_1-5-2024_181059_localhost](https://github.com/DeividsonOmedio/Eccomerce-Angular/assets/114306758/ae00ff03-d680-45cc-91c9-542b4b6a7816)
