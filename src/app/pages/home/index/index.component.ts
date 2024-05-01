@@ -149,6 +149,7 @@ export class IndexComponent implements OnInit{
   productInOffer: IProduto[] = this.produtoList.filter((produto) => produto.promocao);
   scrollableContent: HTMLElement | undefined;
   scrollableContentNovos: HTMLElement | undefined;
+  scrollableContentSearch: HTMLElement | undefined;
   actionVisible: boolean = false;
   actions: HTMLElement | undefined;
   constructor() {
@@ -163,6 +164,7 @@ export class IndexComponent implements OnInit{
   ngAfterViewInit() {
     this.scrollableContent = document.querySelector('.scrollable-container') as HTMLElement;
     this.scrollableContentNovos = document.querySelector('.novos-container') as HTMLElement;
+    this.scrollableContentSearch = document.querySelector('.novos-containerSearch') as HTMLElement;
     if(this.addedNewPurchaseList.length > 5) {
       this.actionVisible = true;
     }
@@ -187,9 +189,12 @@ export class IndexComponent implements OnInit{
     this.addBookToCart.emit(product);
   }
 
-  addedSerach($event: string) {
-    console.log($event);
-    this.searchPurchaseList = this.produtoList.filter((produto) => produto.nome.toLowerCase().includes($event.toLowerCase()));
+  addedSerch(buscado: string) {
+    console.log(buscado);
+    this.searchPurchaseList = this.produtoList.filter((produto) => produto.nome.toLowerCase().includes(buscado.toLowerCase()));
+    this.searchPurchaseList = this.searchPurchaseList.concat(this.addedNewPurchaseList.filter((produto) => produto.nome.toLowerCase().includes(buscado.toLowerCase())));
+    console.log(this.searchPurchaseList);
+
   }
 
   groupByCategory(produtos: IProduto[]): any {
@@ -225,6 +230,16 @@ export class IndexComponent implements OnInit{
   scrollRightNovos() {
     if(this.scrollableContentNovos)
       this.scrollableContentNovos.scrollLeft += 170; 
+  }
 
+  scrollLeftSearch() {
+    
+    if(this.scrollableContentSearch)
+      this.scrollableContentSearch.scrollLeft -= 170; 
+  }
+
+  scrollRightSearch() {
+    if(this.scrollableContentSearch)
+      this.scrollableContentSearch.scrollLeft += 170; 
   }
 }

@@ -11,11 +11,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+SerchBtn() {
+  this.addedSerch(this.busca);
+}
   @Output() search: EventEmitter<string> = new EventEmitter();
-  @Input() busca: string = '';
-
-  addedSerach( ) {
-    console.log(this.busca);
-    this.search.emit(this.busca);
+  @Input() busca: string = ''; 
+  
+  addedSerch(busca: string) {
+    this.search.emit(busca);
   }
+ 
 }

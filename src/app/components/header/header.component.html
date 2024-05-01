@@ -23,8 +23,8 @@
             </mat-toolbar>
         </div>
         <span class="spnPesquisa">
-            <input type="search" name="pesquisa" id="" placeholder="Pesquise o produto" (input)="$any($event.target).value">
-            <button (search)="addedSerach()"><i class="bi bi-search" ></i></button>
+            <input type="search" name="pesquisa" id="" placeholder="Pesquise o produto" (input)="busca = $any($event.target).value">
+            <button ><i class="bi bi-search" (click)="SerchBtn()" ></i></button>
         </span>
             <a href="admin/dashboard"  class="text-light text-decoration-none">
                 <!-- <i class="bi bi-person-fill"></i>--><span>Cadastrar Item</span> 

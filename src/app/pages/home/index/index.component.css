@@ -1,11 +1,11 @@
 
-.scrollable-container, .novos-container {
+.scrollable-container, .novos-container, .novos-containerSearch {
     overflow: hidden;
     position: relative;
     border: none;
   }
   
-  .scrollable-content, .novos-content {
+  .scrollable-content, .novos-content, .novos-contentSearch {
     display: flex;
     width: max-content;
     overflow-x: auto;

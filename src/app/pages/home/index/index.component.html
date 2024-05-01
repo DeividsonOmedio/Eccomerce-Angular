@@ -1,4 +1,4 @@
-<app-header (search)="addedSerach($event)"></app-header>
+<app-header (search)="addedSerch($event)"></app-header>
 
 <div class="p-4">
 <div  class="btnCarrinho d-flex justify-content-end">
@@ -12,6 +12,26 @@
        <app-cart  [PurchaseList]="addedPurchaseList" />
    </mat-drawer>
    
+   @if(searchPurchaseList.length > 0){
+   <mat-card>
+    <mat-card-header>
+      <mat-card-title>Sua busca</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="novos-containerSearch mt-2">
+      <div class="novos-contentSearch">
+          <app-produtos-categoria [produtosCategoriaList]="searchPurchaseList"  (addBookToCart)="addPurchaseToCart($event)" />
+        </div>
+      </mat-card-content>
+      <mat-card-actions class="justify-content-between actions" *ngIf="actionVisible">
+        <button mat-icon-button (click)="scrollLeftSearch()">
+          <mat-icon>keyboard_arrow_left</mat-icon>
+        </button>
+        <button mat-icon-button (click)="scrollRightSearch()">
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  }       
 
    <mat-card>
       <mat-card-header>
@@ -31,10 +51,7 @@
         </button>
       </mat-card-actions>
     </mat-card>
-
-    @if(searchPurchaseList.length > 0){
-      <app-produtos-categoria [produtosCategoriaList]="searchPurchaseList"  (addBookToCart)="addPurchaseToCart($event)" />
-    }  
+ 
    
     <mat-card>
       <mat-card-header>
