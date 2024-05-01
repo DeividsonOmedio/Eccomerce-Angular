@@ -48,6 +48,7 @@
               ],
               "outputHashing": "all"
             },
+            
             "development": {
               "optimization": false,
               "extractLicenses": false,
@@ -56,6 +57,7 @@
           },
           "defaultConfiguration": "production"
         },
+        
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
@@ -97,7 +99,9 @@
       }
     }
   },
+  
   "cli": {
     "analytics": false
   }
+  
 }

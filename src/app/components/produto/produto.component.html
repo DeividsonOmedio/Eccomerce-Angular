@@ -1,7 +1,7 @@
 <section class="d-flex flex-row flex-wrap justify-content-center h-100">
     @if(produto){
         <div class="card h-100 " style="width: 18rem; zoom: .7;">
-            <a href="" class="d-flex justify-content-center">
+            <a href="#" class="d-flex justify-content-center" (click)="adicionarCarrinho()">
                 @if(produto.imagem.startsWith("http")){
                     <img src="{{produto.imagem}}" class="card-img-top w-75 m-auto" alt="...">
                 }
