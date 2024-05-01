@@ -9,3 +9,11 @@ footer section a{
     color: #fff;
     text-decoration: none;
 }
+.rodape{
+    text-align: center;
+    border-top: 1px dotted #fff;
+    padding-top: 5px;
+}
+.rodape span{
+    font-family: cursive;
+}

@@ -1,8 +1,15 @@
 <section class="d-flex flex-row flex-wrap justify-content-center h-100">
     @if(produto){
-        <span class="card h-100" style="width: 18rem; zoom: .7;">
-            <img src="../../../assets/images/produtos/{{produto.imagem}}" class="card-img-top" alt="...">
-            <div class="card-body m-auto text-center">
+        <div class="card h-100 " style="width: 18rem; zoom: .7;">
+            <a href="" class="d-flex justify-content-center">
+                @if(produto.imagem.startsWith("http")){
+                    <img src="{{produto.imagem}}" class="card-img-top w-75 m-auto" alt="...">
+                }
+                @else{
+                    <img src="../../../assets/images/produtos/{{produto.imagem}}" class="card-img-top w-75 m-auto" alt="...">
+                }
+            </a>
+            <div  class="card-body m-auto text-center">
                 <div class="d-flex row">
                     <h2 class="card-title fs-3">{{produto.nome}}
                     <span class="card-subtitle mb-2 fs-3">{{produto.marca}}</span></h2>
@@ -11,7 +18,7 @@
                 <div class="card-body m-auto text-center fs-3"> {{(produto.preco).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}}</div>
                 <a href="#" class="card-link" (click)="adicionarCarrinho()">Adicionar ao Carrinho</a>
              </div>
-        </span>
+        </div>
     }
 </section>
 

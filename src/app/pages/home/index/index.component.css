@@ -1,0 +1,16 @@
+
+.scrollable-container, .novos-container {
+    overflow: hidden;
+    position: relative;
+    border: none;
+  }
+  
+  .scrollable-content, .novos-content {
+    display: flex;
+    width: max-content;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    border: none;
+
+  }
+   

@@ -1,0 +1,12 @@
+form{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10%;
+    padding: 5%;
+}
+
+form div{
+    height: 70px;
+    width: fit-content;
+    margin-bottom: 20px;
+}

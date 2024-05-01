@@ -10,17 +10,14 @@ import { ModalComponent } from '../modal/modal.component';
   templateUrl: './produto.component.html',
   styleUrl: './produto.component.css'
 })
-export class ProdutoComponent implements OnInit{
+export class ProdutoComponent {
   @Input() produto?: IProduto;
   @Output() addBookToCart: EventEmitter<IProduto> = new EventEmitter();
   addedPurchaseList: IProduto[] = [];
   purchaseList: IProduto[] = [];
   modalVisibility: boolean = false;
   productReturn: any;
-  ngOnInit(){
-    console.log(this.produto);
-    this.addedPurchaseList = JSON.parse(localStorage.getItem("addedPurchaseList") || "[]");
-  }
+
   
   adicionarCarrinho(){
     this.modalVisibility = true;

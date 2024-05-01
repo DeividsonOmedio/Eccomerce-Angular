@@ -1,7 +1,6 @@
-<h1>Teste</h1>
-<section class="d-flex flex-row flex-wrap justify-content-center align-items-center modal">
+<section class="d-flex flex-row flex-wrap justify-content-center align-items-center modal" (click)="FecharModal()">
     @if(produto){
-        <span class="card " style="width: 18rem; zoom: 1;">
+        <span class="card " style="width: 18rem; zoom: 1;" (click)="ClickInternoModal($event)">
             <img src="../../../assets/images/produtos/{{produto.imagem}}" class="card-img-top" alt="...">
             <div class="card-body m-auto text-center">
                 <div class="d-flex row">
@@ -12,14 +11,34 @@
                 <p class="card-text">{{produto.descricao}}</p>
                 <div class="card-body m-auto text-center fs-3"> {{(produto.preco).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}}</div>
                 <div class="d-flex flex-row w-100 justify-content-center">
-                    <span class="btn">+</span>
-                    <input type="number" name="quantidade" value="1" id="" class="w-25">
-                    <span class="btn">-</span>
+                    <span class="btn" (click)="decrementQuantidade()">-</span>
+                    <input type="number" name="quantidade" id="" class="w-25" (input)="quantidadeItem = $any($event.target).value" value="{{quantidadeItem}}">
+                    <span class="btn" (click)="incrementQuantidade()">+</span>
                 </div>
-                <a href="#" class="card-link" (click)="FecharModal()">Cancelar</a>
-                <a href="#" class="card-link"  (click)="addToShoppingCart()">Adicionar ao Carrinho</a>
+                <a href="#" class="card-link" (click)="FecharModal()">Voltar</a>
+                <a href="#" class="card-link"  (click)="addToShoppingCart()" data-bs-toggle="modal" data-bs-target="#exampleModal">Adicionar ao Carrinho</a>
              </div>
         </span>
     }
 </section>
 
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fs-5" id="exampleModalLabel">Sucesso</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body fs-7">
+            @if (produto) {
+                <p>{{produto.descricao}} Adicionado Ao Carrinho</p>
+            }
+          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
+        </div>
+      </div>
+    </div>
+  </div>

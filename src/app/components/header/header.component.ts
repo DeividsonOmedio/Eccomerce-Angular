@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NgbNav } from '@ng-bootstrap/ng-bootstrap';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -11,5 +11,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+  @Output() search: EventEmitter<string> = new EventEmitter();
+  @Input() busca: string = '';
 
+  addedSerach( ) {
+    console.log(this.busca);
+    this.search.emit(this.busca);
+  }
 }

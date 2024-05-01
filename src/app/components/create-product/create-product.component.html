@@ -1,0 +1,90 @@
+
+<form [formGroup]="productForm">
+    
+    <div >
+        <mat-form-field class="flex-none">
+        <mat-label>Nome</mat-label>
+        <input matInput formControlName="nome">
+      </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="flex-none">
+        <mat-label>Marca</mat-label>
+        <input matInput formControlName="marca">
+      </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="flex-none">
+        <mat-label>Descrição</mat-label>
+        <textarea matInput formControlName="descricao" class="textarea-autoresize" rows="1"></textarea>
+      </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="flex-none">
+        <mat-label>Medida</mat-label>
+        <input matInput formControlName="medida">
+      </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="flex-none">
+        <mat-label>Categoria</mat-label>
+        <input matInput formControlName="categoria">
+      </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="flex-none">
+            <mat-label>Preço</mat-label>
+        <input  matInput type="number" placeholder="0" formControlName="preco">
+      </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <mat-label>Esta em promoção</mat-label>
+            <select matNativeControl required formControlName="promocao">
+              <option value="true">Sim</option>
+              <option selected value="false">Nâo</option>
+            </select>
+          </mat-form-field>
+    </div>
+    
+    <div>
+        <mat-form-field class="flex-none">
+        <mat-label>precoPromocional</mat-label>
+        <input  matInput type="number" placeholder="0" formControlName="precoPromocional">
+      </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="flex-none">
+        <mat-label>quantidadeEmEstoque</mat-label>
+        <input matInput type="number" formControlName="quantidadeEmEstoque">
+      </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="flex-none">
+          <mat-label>Imagem (Link)</mat-label>
+          <input matInput formControlName="imagem">
+        </mat-form-field>
+    </div>
+    <button mat-flat-button color="primary" (click)="submitForm()" data-bs-toggle="modal" data-bs-target="#exampleModal">Enviar</button>
+  </form>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sucesso</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <strong>Produto Cadastrado e Visível na Home</strong>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">fechar</button>
+        <button type="button" class="btn btn-primary"><a href="./">Home</a> </button>
+      </div>
+    </div>
+  </div>
+</div>

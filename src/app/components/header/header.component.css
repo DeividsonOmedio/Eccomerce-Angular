@@ -3,6 +3,7 @@
     display: flex;
     gap: 15%;
     zoom: 1.2;
+    z-index: 10;
 }
 .logo{
     scale: 2.8;

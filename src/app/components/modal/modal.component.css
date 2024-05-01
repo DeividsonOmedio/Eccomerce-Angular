@@ -2,5 +2,9 @@
     background-color: rgba(168, 166, 166, 0.514);
 }
 .card{
-    zoom: 1.5;
+    width: 22rem;
+    padding: 20px;
+    zoom: 1;
+    border: double 5px;
+    box-shadow: 6px 7px 5px 6px;
 }

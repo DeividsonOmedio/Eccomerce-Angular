@@ -1,21 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ProdutosCategoriaComponent } from '../../../components/produtos-categoria/produtos-categoria.component';
 import { IProduto } from '../../../interfaces/produto.interface';
 import { KeyValuePipe, NgFor } from '@angular/common';
 
 import { MatSidenavModule } from '@angular/material/sidenav';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { CartComponent } from '../../../components/cart/cart.component';
+import { HeaderComponent } from '../../../components/header/header.component';
+
 
 @Component({
   selector: 'app-index',
   standalone: true,
-  imports: [ProdutosCategoriaComponent, NgFor, KeyValuePipe, MatSidenavModule, MatButtonModule, MatIconModule, CartComponent],
+  imports: [ProdutosCategoriaComponent, NgFor, KeyValuePipe, MatSidenavModule, MatButtonModule, MatIconModule, CartComponent, MatCardModule, HeaderComponent],
   templateUrl: './index.component.html',
   styleUrl: './index.component.css'
 })
-export class IndexComponent {
+export class IndexComponent implements OnInit{
+
 
   produtoList: IProduto[] = [
     {
@@ -35,8 +39,8 @@ export class IndexComponent {
     {
       "id": 2,
       "nome": "Arroz Tipo 1",
-      "marca": "Sempre Bom",
-      "descricao": "Arroz Sempre Bom Longo Fino Tipo 5kg",
+      "marca": "Prato Fino",
+      "descricao": "Arroz Prato Fino Longo Fino Tipo 5kg",
       "medida": "5Kg",
       "categoria": "Dispensa",
       "preco": 27.90,
@@ -137,14 +141,57 @@ export class IndexComponent {
   
   ]
 
+  @Output() addBookToCart: EventEmitter<IProduto> = new EventEmitter();
   categoriasProdutos: any;
   addedPurchaseList: IProduto[] = [];
-
+  addedNewPurchaseList: IProduto[] = [];
+  searchPurchaseList: IProduto[] = [];
+  productInOffer: IProduto[] = this.produtoList.filter((produto) => produto.promocao);
+  scrollableContent: HTMLElement | undefined;
+  scrollableContentNovos: HTMLElement | undefined;
+  actionVisible: boolean = false;
+  actions: HTMLElement | undefined;
   constructor() {
     this.categoriasProdutos = this.groupByCategory(this.produtoList);
     console.log(this.categoriasProdutos);
   }
   
+  ngOnInit() {
+    this.addedPurchaseList = JSON.parse(localStorage.getItem("addedPurchaseList") || "[]");
+    this.addedNewPurchaseList = JSON.parse(localStorage.getItem("productList") || "[]");
+  }
+  ngAfterViewInit() {
+    this.scrollableContent = document.querySelector('.scrollable-container') as HTMLElement;
+    this.scrollableContentNovos = document.querySelector('.novos-container') as HTMLElement;
+    if(this.addedNewPurchaseList.length > 5) {
+      this.actionVisible = true;
+    }
+  }
+
+  findOrAddProduct(product: IProduto) {
+    for (let i=0; i<this.addedPurchaseList.length; i++) {
+      const currProduct = this.addedPurchaseList[i];
+      if (product.id === currProduct.id) {
+        currProduct.totalAdicionadoAoCart = (product.totalAdicionadoAoCart < product.quantidadeEmEstoque)? currProduct.totalAdicionadoAoCart + 1 : currProduct.totalAdicionadoAoCart;
+        return;
+      }
+    }
+
+    product.totalAdicionadoAoCart = 1;
+    this.addedPurchaseList.push(product);
+  }
+  addPurchaseToCart(product: IProduto) {
+    console.log(product);
+    this.findOrAddProduct(product);
+    this.addedPurchaseList = [...this.addedPurchaseList];
+    this.addBookToCart.emit(product);
+  }
+
+  addedSerach($event: string) {
+    console.log($event);
+    this.searchPurchaseList = this.produtoList.filter((produto) => produto.nome.toLowerCase().includes($event.toLowerCase()));
+  }
+
   groupByCategory(produtos: IProduto[]): any {
     
     return produtos.reduce((grupo: any, produto) => {
@@ -156,5 +203,28 @@ export class IndexComponent {
       return grupo;
     }, {});
   }
-  
+
+  scrollLeft() {
+    
+    if(this.scrollableContent)
+      this.scrollableContent.scrollLeft -= 170; // ajuste conforme necessário
+   console.log(this.scrollableContent?.scrollLeft);
+  }
+
+  scrollRight() {
+    if(this.scrollableContent)
+      this.scrollableContent.scrollLeft += 170; 
+
+  }
+  scrollLeftNovos() {
+    
+    if(this.scrollableContentNovos)
+      this.scrollableContentNovos.scrollLeft -= 170; 
+  }
+
+  scrollRightNovos() {
+    if(this.scrollableContentNovos)
+      this.scrollableContentNovos.scrollLeft += 170; 
+
+  }
 }

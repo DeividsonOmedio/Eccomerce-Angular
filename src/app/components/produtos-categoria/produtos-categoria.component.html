@@ -1,19 +1,5 @@
-<div  class="btnCarrinho d-flex justify-content-end">
-    <button type="button" mat-icon-button (click)="drawer.toggle()" > 
-        <mat-icon>shopping_cart</mat-icon>
-    </button> 
- </div>
- <mat-drawer-container class="example-container" autosize >
-    <span>.</span>
-    <mat-drawer #drawer class="example-sidenav" mode="side" position="end">
-        <app-cart  [PurchaseList]="addedPurchaseList" />
-    </mat-drawer>
-    
-    
-    
     <div class="d-flex flex-row gap-5 justify-content-around">
         <div  *ngFor="let produto of produtosCategoriaList">
             <app-produto [produto]="produto"  (addBookToCart)="addPurchaseToCart(produto)"></app-produto>
         </div>
     </div>
-</mat-drawer-container>

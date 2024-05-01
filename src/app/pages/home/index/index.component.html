@@ -1,8 +1,70 @@
+<app-header (search)="addedSerach($event)"></app-header>
 
+<div class="p-4">
+<div  class="btnCarrinho d-flex justify-content-end">
+   <button type="button" mat-icon-button (click)="drawer.toggle()" > 
+       <mat-icon>shopping_cart</mat-icon>
+   </button> 
+</div>
+<mat-drawer-container class="example-container  mt-2" autosize >
+   <span>.</span>
+   <mat-drawer #drawer class="example-sidenav" mode="side" position="end">
+       <app-cart  [PurchaseList]="addedPurchaseList" />
+   </mat-drawer>
    
+
+   <mat-card>
+      <mat-card-header>
+        <mat-card-title>Promoções</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="scrollable-container  mt-2">
+        <div class="scrollable-content">
+          <app-produtos-categoria [produtosCategoriaList]="productInOffer"  (addBookToCart)="addPurchaseToCart($event)" />
+        </div>
+      </mat-card-content>
+      <mat-card-actions class="justify-content-between">
+        <button mat-icon-button (click)="scrollLeft()">
+          <mat-icon>keyboard_arrow_left</mat-icon>
+        </button>
+        <button mat-icon-button (click)="scrollRight()">
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+
+    @if(searchPurchaseList.length > 0){
+      <app-produtos-categoria [produtosCategoriaList]="searchPurchaseList"  (addBookToCart)="addPurchaseToCart($event)" />
+    }  
+   
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Novos Produtos</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="novos-container mt-2">
+        <div class="novos-content">
+          @if(addedNewPurchaseList.length > 0){
+            <app-produtos-categoria [produtosCategoriaList]="addedNewPurchaseList"  (addBookToCart)="addPurchaseToCart($event)" />
+          }        
+        </div>
+      </mat-card-content>
+      <mat-card-actions class="justify-content-between actions" *ngIf="actionVisible">
+        <button mat-icon-button (click)="scrollLeftNovos()">
+          <mat-icon>keyboard_arrow_left</mat-icon>
+        </button>
+        <button mat-icon-button (click)="scrollRightNovos()">
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+
+
+ 
    <div *ngFor="let categoria of categoriasProdutos | keyvalue" class="pt-4">
       <h2>{{categoria.key}}</h2>
-      <app-produtos-categoria [produtosCategoriaList]="categoria.value"  />
+      <app-produtos-categoria [produtosCategoriaList]="categoria.value" (addBookToCart)="addPurchaseToCart($event)" />
    </div> 
    
-   
+</mat-drawer-container>
+</div>
+
+

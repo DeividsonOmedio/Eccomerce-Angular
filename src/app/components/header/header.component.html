@@ -1,8 +1,8 @@
 <nav class="navbar bg-dark border-body text-light pt-3 px-5" data-bs-theme="dark">
     <span class="redesSociais">
-        <a href=""><i class="bi bi-instagram text-light"></i></a>
-        <a href=""><i class="bi bi-youtube text-light" ></i></a>
-        <a href=""><i class="bi bi-linkedin text-light"></i></a>
+        <a href="https://www.instagram.com/deividsonomedio" target="_blank"><i class="bi bi-instagram text-light"></i></a>
+        <a href="https://github.com/DeividsonOmedio" target="_blank"><i class="bi bi-youtube text-light" ></i></a>
+        <a href="https://www.linkedin.com/in/deividson-omedio/" target="_blank"><i class="bi bi-linkedin text-light"></i></a>
       </span>
       <span  class="">
           <a href="#" class="text-light fs-6 text-decoration-none ms-5 ps-5">Conheça Nossa Historia</a>
@@ -23,12 +23,12 @@
             </mat-toolbar>
         </div>
         <span class="spnPesquisa">
-            <input type="search" name="pesquisa" id="" placeholder="Pesquise o produto" >
-            <button><i class="bi bi-search"></i></button>
+            <input type="search" name="pesquisa" id="" placeholder="Pesquise o produto" (input)="$any($event.target).value">
+            <button (search)="addedSerach()"><i class="bi bi-search" ></i></button>
         </span>
-            <span  class="">
-                <i class="bi bi-person-fill"></i><span>Entre Ou Cadastre-se</span>
-            </span>
+            <a href="admin/dashboard"  class="text-light text-decoration-none">
+                <!-- <i class="bi bi-person-fill"></i>--><span>Cadastrar Item</span> 
+            </a>
     </nav>
 
 
