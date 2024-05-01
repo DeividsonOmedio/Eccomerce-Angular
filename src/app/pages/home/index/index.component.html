@@ -22,14 +22,7 @@
           <app-produtos-categoria [produtosCategoriaList]="searchPurchaseList"  (addBookToCart)="addPurchaseToCart($event)" />
         </div>
       </mat-card-content>
-      <mat-card-actions class="justify-content-between actions" *ngIf="actionVisible">
-        <button mat-icon-button (click)="scrollLeftSearch()">
-          <mat-icon>keyboard_arrow_left</mat-icon>
-        </button>
-        <button mat-icon-button (click)="scrollRightSearch()">
-          <mat-icon>keyboard_arrow_right</mat-icon>
-        </button>
-      </mat-card-actions>
+     
     </mat-card>
   }       
 
@@ -63,14 +56,7 @@
             <app-produtos-categoria [produtosCategoriaList]="addedNewPurchaseList"  (addBookToCart)="addPurchaseToCart($event)" />
           </div>
         </mat-card-content>
-        <mat-card-actions class="justify-content-between actions" *ngIf="actionVisible">
-          <button mat-icon-button (click)="scrollLeftNovos()">
-            <mat-icon>keyboard_arrow_left</mat-icon>
-          </button>
-          <button mat-icon-button (click)="scrollRightNovos()">
-            <mat-icon>keyboard_arrow_right</mat-icon>
-          </button>
-        </mat-card-actions>
+        
       </mat-card>
     }        
 
