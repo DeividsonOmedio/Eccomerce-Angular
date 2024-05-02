@@ -1,21 +1,22 @@
-<nav class="navbar bg-dark border-body text-light pt-3 px-5" data-bs-theme="dark">
-    <span class="redesSociais">
-        <a href="https://www.instagram.com/deividsonomedio" target="_blank"><i class="bi bi-instagram text-light"></i></a>
-        <a href="https://github.com/DeividsonOmedio" target="_blank"><i class="bi bi-youtube text-light" ></i></a>
-        <a href="https://www.linkedin.com/in/deividson-omedio/" target="_blank"><i class="bi bi-linkedin text-light"></i></a>
-      </span>
-      <span  class="">
-          <a href="#" class="text-light fs-6 text-decoration-none ms-5 ps-5">Conheça Nossa Historia</a>
-      </span>
-      <span class="">
+<header>
+    <nav class="navbar bg-dark border-body text-light pt-3 px-5" data-bs-theme="dark">
+        <span class="redesSociais">
+            <a href="https://www.instagram.com/deividsonomedio" target="_blank"><i class="bi bi-instagram text-light"></i></a>
+            <a href="https://github.com/DeividsonOmedio" target="_blank"><i class="bi bi-youtube text-light" ></i></a>
+            <a href="https://www.linkedin.com/in/deividson-omedio/" target="_blank"><i class="bi bi-linkedin text-light"></i></a>
+        </span>
+        <span  class="">
+            <a href="#" class="text-light fs-6 text-decoration-none ms-5 ps-5">Conheça Nossa Historia</a>
+        </span>
+        <span class="">
             <label>Cidade: &nbsp;</label>
             <i class="bi bi-geo-alt-fill"></i>
-          <select name="loja" id="">
-              <option value="bc"> Barão de Cocais</option>
-              <option value="bh">Belo Horizonte</option>
+            <select name="loja" id="">
+                <option value="bc"> Barão de Cocais</option>
+                <option value="bh">Belo Horizonte</option>
             </select>
         </span>
-  </nav>
+    </nav>
     <nav class="navbar bg-dark border-bottom border-body text-light px-5" data-bs-theme="dark">
         <div>
             <mat-toolbar class="bg-dark">
@@ -26,9 +27,8 @@
             <input type="search" name="pesquisa" id="" placeholder="Pesquise o produto" (input)="busca = $any($event.target).value">
             <button ><i class="bi bi-search" (click)="SerchBtn()" ></i></button>
         </span>
-            <a href="admin/dashboard"  class="text-light text-decoration-none">
-                <!-- <i class="bi bi-person-fill"></i>--><span>Cadastrar Item</span> 
-            </a>
+        <a href="admin/dashboard"  class="text-light text-decoration-none">
+            <!-- <i class="bi bi-person-fill"></i>--><span>Cadastrar Item</span> 
+        </a>
     </nav>
-
-
+</header>

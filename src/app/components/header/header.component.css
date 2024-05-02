@@ -38,3 +38,21 @@ mat-toolbar{
 .spnPesquisa{
     margin-left: -250px;
 }
+
+@media screen and (max-width: 700px){
+    header {
+        zoom: 0.8;
+    }
+    .LogoText{
+        font-size: .7rem;
+    }
+    .spnPesquisa{
+        margin-left: -120px;
+    }
+}
+
+@media screen and (max-width: 500px){
+    header {
+        zoom: 0.5;
+    }
+}

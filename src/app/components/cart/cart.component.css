@@ -2,3 +2,8 @@
     cursor: pointer;
     margin: auto 0;
 }
+@media screen and (max-width: 400px){
+    mat-list{
+        zoom: .8;
+    }
+}

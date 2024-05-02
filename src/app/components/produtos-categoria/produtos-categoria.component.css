@@ -1,0 +1,12 @@
+
+@media screen and (max-width: 700px){
+    .divCategoria{
+        zoom: .7;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .divCategoria{
+        zoom: .5;
+    }
+}
